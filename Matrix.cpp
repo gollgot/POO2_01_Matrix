@@ -15,6 +15,10 @@
 using namespace std;
 
 Matrix::Matrix(int n, int m, int modulus) : n(n), m(m), modulus(modulus) {
+
+    testModulus(modulus);
+    testMatrixDimensions(n, m);
+
     // Initialize content array
     content = new int*[n];
 
@@ -30,6 +34,18 @@ void Matrix::randomPopulate() {
         for(int col = 0; col < m; ++col) {
             content[row][col] = rand() / (RAND_MAX + 1.0) * modulus; // Random number [0;modulus[
         }
+    }
+}
+
+void Matrix::testModulus(int modulus) const {
+    if(modulus <= 0){
+        throw invalid_argument("We cannot have a modulus of 0 because the matrix values must be between 0 and modulus - 1");
+    }
+}
+
+void Matrix::testMatrixDimensions(int n, int m) const {
+    if (n <= 0 || m <= 0) {
+        throw invalid_argument("Matrix dimension cannot be void or negative");
     }
 }
 

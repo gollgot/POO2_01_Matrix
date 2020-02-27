@@ -30,6 +30,21 @@ private:
      */
     Matrix calc(const Matrix& other, Operator& op) const;
 
+    /**
+     * Test a modulus. It cannot be 0 or minus because of the matrix values that must be between 0 and modulus-1
+     * @param modulus The modulus
+     * @throws RuntimeException if the modulus is 0 or minus
+     */
+    void testModulus(int modulus) const;
+
+    /**
+     * Test the matrix dimensions. We cannot have void or negative dimensions
+     * @param n The row size of the Matrix
+     * @param m The column size of the Matrix
+     * @throws RuntimeException if a matrix dimension is 0 or negative
+     */
+    void testMatrixDimensions(int n, int m) const;
+
 public:
     Matrix(int n, int m, int modulus);
 
