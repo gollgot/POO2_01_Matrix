@@ -29,6 +29,22 @@ Matrix::Matrix(int n, int m, int modulus) : n(n), m(m), modulus(modulus) {
     randomPopulate();
 }
 
+Matrix::Matrix(const Matrix &matrix) {
+    // variables copy
+    n = matrix.n;
+    m = matrix.m;
+    modulus = matrix.modulus;
+
+    // Initialize new content array and copy same values as the cpy matrix content
+    content = new int*[n];
+    for(int i = 0; i < n; ++i) {
+        content[i] = new int[m];
+        for(int j = 0; j < m; j++){
+            content[i][j] = matrix.content[i][j];
+        }
+    }*/
+}
+
 void Matrix::randomPopulate() {
     for(int row = 0; row < n; ++row) {
         for(int col = 0; col < m; ++col) {
@@ -101,6 +117,27 @@ Matrix::~Matrix() {
         delete[] content[i];
     }
     delete[] content;
+}
+
+Matrix& Matrix::operator=(const Matrix& matrix) {
+    // Both object must be different to do the copy
+    if(this != &matrix){
+        // variables copy
+        n = matrix.n;
+        m = matrix.m;
+        modulus = matrix.modulus;
+
+        // Initialize new content array and copy same values as the cpy matrix content
+        content = new int*[n];
+        for(int i = 0; i < n; ++i) {
+            content[i] = new int[m];
+            for(int j = 0; j < m; j++){
+                content[i][j] = matrix.content[i][j];
+            }
+        }
+    }
+
+    return *this;
 }
 
 std::ostream& operator<<(std::ostream& os, const Matrix& m) {

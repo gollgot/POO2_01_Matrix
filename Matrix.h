@@ -47,6 +47,7 @@ private:
 
 public:
     Matrix(int n, int m, int modulus);
+    Matrix(const Matrix& m);
 
     Matrix addStatic(const Matrix& other) const;
     Matrix subStatic(const Matrix& other) const;
@@ -55,7 +56,7 @@ public:
     // TODO addDynamic(), subDynamic(), multiplyDynamic()
     // TODO addModify(), subModify(), multiplyModify()
 
-    // TODO operator=
+    Matrix& operator=(const Matrix& matrix);
     friend std::ostream& operator<<(std::ostream& os, const Matrix& m);
 
     ~Matrix();
