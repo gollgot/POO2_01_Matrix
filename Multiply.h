@@ -10,7 +10,7 @@
 #include "Operator.h"
 
 class Multiply : public Operator {
-    int calculate(int op1, int op2) override {
+    int calculate(int op1, int op2) const override {
         return op1 * op2;
     }
 };
