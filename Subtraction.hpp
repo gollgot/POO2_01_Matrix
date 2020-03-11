@@ -1,13 +1,13 @@
 /*
- * File     : Subtraction.h
+ * File     : Subtraction.hpp
  * Authors  : Robin Demarta, Loïc Dessaules
  * Date     : 21.02.2020
  */
 
-#ifndef POO2_LABO01_SUBTRACTION_H
-#define POO2_LABO01_SUBTRACTION_H
+#ifndef POO2_LABO01_SUBTRACTION_HPP
+#define POO2_LABO01_SUBTRACTION_HPP
 
-#include "Operator.h"
+#include "Operator.hpp"
 
 class Subtraction : public Operator {
     int calculate(int op1, int op2) const override {
@@ -16,4 +16,4 @@ class Subtraction : public Operator {
 };
 
 
-#endif //POO2_LABO01_SUBTRACTION_H
+#endif //POO2_LABO01_SUBTRACTION_HPP

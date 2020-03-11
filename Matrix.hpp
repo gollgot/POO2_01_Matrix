@@ -1,5 +1,5 @@
 /*
- * File     : Matrix.h
+ * File     : Matrix.hpp
  * Authors  : Robin Demarta, Loïc Dessaules
  * Date     : 21.02.2020
  */
@@ -8,7 +8,7 @@
 #define POO2_Labo01_MATRIX_H
 
 #include <ostream>
-#include "Operator.h"
+#include "Operator.hpp"
 
 class Matrix {
 private:
@@ -21,19 +21,82 @@ public:
     Matrix(int n, int m, int modulus);
     Matrix(const Matrix& m);
 
+    /**
+     * Apply addition on new Matrix object
+     * @param other
+     * @return new Matrix object
+     */
     Matrix addCopy(const Matrix& other) const;
+
+    /**
+     * Apply subtraction on new Matrix object
+     * @param other
+     * @return new Matrix object
+     */
     Matrix subCopy(const Matrix& other) const;
+
+    /**
+     * Apply multiplication on new Matrix object
+     * @param other
+     * @return new Matrix object
+     */
     Matrix multiplyCopy(const Matrix& other) const;
 
+    /**
+     * Apply addition on dynamically allocated Matrix
+     * @param other
+     * @return pointer to the new Matrix
+     */
     Matrix* addDynamic(const Matrix& other) const;
+
+    /**
+     * Apply subtraction on dynamically allocated Matrix
+     * @param other
+     * @return pointer to the new Matrix
+     */
     Matrix* subDynamic(const Matrix& other) const;
+
+    /**
+     * Apply multiplication on dynamically allocated Matrix
+     * @param other
+     * @return pointer to the new Matrix
+     */
     Matrix* multiplyDynamic(const Matrix& other) const;
 
+    /**
+     * Apply addition on current Matrix
+     * @param other
+     * @return a reference to the current and modified Matrix
+     */
     Matrix& addModify(const Matrix& other);
+
+    /**
+     * Apply subtraction on current Matrix
+     * @param other
+     * @return a reference to the current and modified Matrix
+     */
     Matrix& subModify(const Matrix& other);
+
+    /**
+     * Apply multiplication on current Matrix
+     * @param other
+     * @return a reference to the current and modified Matrix
+     */
     Matrix& multiplyModify(const Matrix& other);
 
+    /**
+     * Copy operator
+     * @param matrix
+     * @return
+     */
     Matrix& operator=(const Matrix& matrix);
+
+    /**
+     * Allows to display Matrix using ostream <<
+     * @param os
+     * @param m
+     * @return
+     */
     friend std::ostream& operator<<(std::ostream& os, const Matrix& m);
 
     ~Matrix();

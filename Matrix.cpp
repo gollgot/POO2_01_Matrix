@@ -8,11 +8,11 @@
 #include <algorithm>
 #include <ctime>
 
-#include "Matrix.h"
-#include "Operator.h"
-#include "Addition.h"
-#include "Subtraction.h"
-#include "Multiply.h"
+#include "Matrix.hpp"
+#include "Operator.hpp"
+#include "Addition.hpp"
+#include "Subtraction.hpp"
+#include "Multiply.hpp"
 
 using namespace std;
 

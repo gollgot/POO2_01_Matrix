@@ -1,13 +1,13 @@
 /*
- * File     : Multiply.h
+ * File     : Multiply.hpp
  * Authors  : Robin Demarta, Loïc Dessaules
  * Date     : 21.02.2020
  */
 
-#ifndef POO2_LABO01_MULTIPLY_H
-#define POO2_LABO01_MULTIPLY_H
+#ifndef POO2_LABO01_MULTIPLY_HPP
+#define POO2_LABO01_MULTIPLY_HPP
 
-#include "Operator.h"
+#include "Operator.hpp"
 
 class Multiply : public Operator {
     int calculate(int op1, int op2) const override {
@@ -16,4 +16,4 @@ class Multiply : public Operator {
 };
 
 
-#endif //POO2_LABO01_MULTIPLY_H
+#endif //POO2_LABO01_MULTIPLY_HPP

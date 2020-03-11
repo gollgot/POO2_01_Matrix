@@ -5,10 +5,18 @@
  */
 
 #include <iostream>
-#include "Matrix.h"
+#include "Matrix.hpp"
 
 using namespace std;
 
+/**
+ * Tests the 3 different ways of applying operation on Matrix object.
+ * @param n1
+ * @param m1
+ * @param n2
+ * @param m2
+ * @param modulus
+ */
 void testMatrix(int n1, int m1, int n2, int m2, int modulus) {
 
     cout << "The modulus is " << modulus << endl;
