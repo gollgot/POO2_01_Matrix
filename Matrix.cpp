@@ -152,19 +152,8 @@ Matrix& Matrix::multiplyModify(const Matrix& other) {
 Matrix& Matrix::operator=(const Matrix& matrix) {
     // Both object must be different to do the copy
     if(this != &matrix) {
-        // Variables copy
-        n = matrix.n;
-        m = matrix.m;
-        modulus = matrix.modulus;
-
-        // Initialize new content array and copy same values as the cpy matrix content
-        content = new int* [n];
-        for(int i = 0; i < n; ++i) {
-            content[i] = new int[m];
-            for(int j = 0; j < m; j++) {
-                content[i][j] = matrix.content[i][j];
-            }
-        }
+        Matrix newMatrix(matrix);
+        swap(*this, newMatrix);
     }
 
     return *this;
