@@ -25,7 +25,18 @@ private:
     const static Multiply mulOp;
 
 public:
+    /**
+     * Standard constructor of Matrix
+     * @param n number of rows
+     * @param m number of columns
+     * @param modulus
+     */
     Matrix(int n, int m, int modulus);
+
+    /**
+     * Copy constructor that allows to duplicate the Matrix object
+     * @param m
+     */
     Matrix(const Matrix& m);
 
     /**

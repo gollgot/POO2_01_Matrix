@@ -153,7 +153,10 @@ Matrix& Matrix::operator=(const Matrix& matrix) {
     // Both object must be different to do the copy
     if(this != &matrix) {
         Matrix newMatrix(matrix);
-        swap(*this, newMatrix);
+        swap(n, newMatrix.n);
+        swap(m, newMatrix.m);
+        swap(modulus, newMatrix.modulus);
+        swap(content, newMatrix.content);
     }
 
     return *this;

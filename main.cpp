@@ -23,13 +23,13 @@ void testMatrix(int n1, int m1, int n2, int m2, int modulus) {
 
     Matrix matrix1(n1, m1, modulus);
     Matrix matrix2(n2, m2, modulus);
-    cout << endl << "Testing \"Copy\" function" << endl << endl;
+    cout << endl << "Testing \"Copy\" functions" << endl << endl;
     cout << "one" << endl << matrix1 << endl << "two" << endl << matrix2 << endl;
     cout << "one + two" << endl << matrix1.addCopy(matrix2) << endl;
     cout << "one - two" << endl << matrix1.subCopy(matrix2) << endl;
     cout << "one * two" << endl << matrix1.multiplyCopy(matrix2) << endl;
 
-    cout << "Testing \"Modify\" function" << endl << endl;
+    cout << "Testing \"Modify\" functions" << endl << endl;
     cout << "one" << endl << matrix1 << endl << "two" << endl << matrix2 << endl;
     matrix1.addModify(matrix2);
     cout << "one + two" << endl << matrix1 << endl;
@@ -38,7 +38,7 @@ void testMatrix(int n1, int m1, int n2, int m2, int modulus) {
     matrix1.multiplyModify(matrix2);
     cout << "one * two" << endl << matrix1 << endl;
 
-    cout << "Testing \"Dynamic\" function" << endl << endl;
+    cout << "Testing \"Dynamic\" functions" << endl << endl;
     cout << "one" << endl << matrix1 << endl << "two" << endl << matrix2 << endl;
     Matrix* matrix3 = matrix1.addDynamic(matrix2);
     cout << "one + two" << endl << *matrix3 << endl;
