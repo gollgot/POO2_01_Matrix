@@ -9,6 +9,9 @@
 
 #include <ostream>
 #include "Operator.hpp"
+#include "Addition.hpp"
+#include "Subtraction.hpp"
+#include "Multiply.hpp"
 
 class Matrix {
 private:
@@ -16,6 +19,10 @@ private:
     int m;
     int modulus;
     int** content;
+
+    const static Addition addOp;
+    const static Subtraction subOp;
+    const static Multiply mulOp;
 
 public:
     Matrix(int n, int m, int modulus);

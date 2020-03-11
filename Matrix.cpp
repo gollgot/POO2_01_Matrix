@@ -16,6 +16,10 @@
 
 using namespace std;
 
+const Addition Matrix::addOp;
+const Subtraction Matrix::subOp;
+const Multiply Matrix::mulOp;
+
 Matrix::Matrix(int n, int m, int modulus) : n(n), m(m), modulus(modulus) {
 
     testModulus(modulus);
@@ -46,7 +50,6 @@ Matrix::Matrix(const Matrix& matrix) {
 }
 
 void Matrix::randomPopulate() {
-    // TODO fix randomness
     srand((unsigned int)(time(nullptr))); // Random seed
 
     for(int row = 0; row < n; ++row)
@@ -61,8 +64,8 @@ void Matrix::testModulus(int mod) const {
     }
 }
 
-void Matrix::testMatrixDimensions(int n, int m) const {
-    if(n <= 0 || m <= 0)
+void Matrix::testMatrixDimensions(int nVal, int mVal) const {
+    if(nVal <= 0 || mVal <= 0)
         throw invalid_argument("Matrix dimension cannot be void or negative");
 }
 
@@ -99,63 +102,51 @@ Matrix& Matrix::calc(const Matrix& other, const Operator& op) {
 }
 
 Matrix Matrix::addCopy(const Matrix& other) const {
-    Addition op;
     Matrix result(*this);
-    result.calc(other, op);
+    result.calc(other, addOp);
     return result;
 }
 
 Matrix Matrix::subCopy(const Matrix& other) const {
-    Subtraction op;
     Matrix result(*this);
-    result.calc(other, op);
+    result.calc(other, subOp);
     return result;
 }
 
 Matrix Matrix::multiplyCopy(const Matrix& other) const {
-    Multiply op;
     Matrix result(*this);
-    result.calc(other, op);
+    result.calc(other, mulOp);
     return result;
 }
 
 Matrix* Matrix::addDynamic(const Matrix& other) const {
-    Addition op;
     Matrix* result = new Matrix(*this);
-    result->calc(other, op);
+    result->calc(other, addOp);
     return result;
 }
 
 Matrix* Matrix::subDynamic(const Matrix& other) const {
-    Subtraction op;
     Matrix* result = new Matrix(*this);
-    result->calc(other, op);
-    return nullptr;
+    result->calc(other, subOp);
+    return result;
 }
 
 Matrix* Matrix::multiplyDynamic(const Matrix& other) const {
-    Multiply op;
     Matrix* result = new Matrix(*this);
-    result->calc(other, op);
-    return nullptr;
+    result->calc(other, mulOp);
+    return result;
 }
 
 Matrix& Matrix::addModify(const Matrix& other) {
-    Addition op;
-    calc(other, op);
-    return *this;
+    return calc(other, addOp);
 }
 
 Matrix& Matrix::subModify(const Matrix& other) {
-    Subtraction op;
-    calc(other, op);
-    return *this;
+    return calc(other, subOp);
 }
 
 Matrix& Matrix::multiplyModify(const Matrix& other) {
-    Multiply op;
-    calc(other, op);
-    return *this;
+    return calc(other, mulOp);
 }
 
 Matrix& Matrix::operator=(const Matrix& matrix) {
